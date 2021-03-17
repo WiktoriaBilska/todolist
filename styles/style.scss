@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --deep-dark: rgb(26, 26, 26);
+  --light-dark: rgb(79, 82, 92);
+  --light-blue: rgb(0, 132, 255);
+  --dark-blue: rgb(2, 84, 161);
+  --light: rgb(245, 245, 245);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  background-color: var(--light);
+}
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  min-height: auto;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
+
+  .header {
+    background-image: linear-gradient(340deg, #8dc595 0%, #21bb2e 100%);
+    border-radius: 1rem;
+    height: auto;
+    padding-bottom: 1rem;
+
+    h1 {
+      color: var(--light);
+      margin: 1rem;
+      text-transform: uppercase;
+    }
+
+    .todoInput {
+      width: 80%;
+      padding: 0.5rem 1rem;
+      margin: 1rem;
+      border: none;
+      border-radius: 0.4rem;
+      color: var(--light-dark);
+      background-color: var(--light);
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .addBtn {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 0.4rem;
+      color: var(--deep-dark);
+      background-color: var(--light);
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: color 0.3s, background-color 0.3s;
+      font-size: 1rem;
+      outline: none;
+
+      &:hover {
+        color: #fff;
+        background-color: var(--light-dark);
+      }
+    }
+  }
+}
+
+.todoList {
+  padding: 2rem 0.5rem;
+
+  h3 {
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .alertInfo {
+    margin-top: 1rem;
+    color: var(--dark-blue);
+  }
+
+  ul {
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 15px;
+      padding-left: 20px;
+      text-align: left;
+      list-style: none;
+      background-color: var(--light);
+    }
+  }
+}
+
+.popup {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(70% - 2rem);
+  color: var(--light);
+  background-color: var(--light-dark);
+  border-radius: 1rem;
+  z-index: 2;
+
+  &::after {
+    display: block;
+    width: 200%;
+    height: 100vh;
+    content: "";
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    z-index: -10;
+  }
+
+  h3 {
+    padding: 1rem;
+  }
+
+  .popupInfo {
+    color: var(--light);
+    margin-bottom: 1rem;
+  }
+
+  .popupBody {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 90%;
+    padding: 0.5rem;
+  }
+
+  .popupInput {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 1rem;
+    color: var(--light-dark);
+    background-color: var(--light);
+    outline: none;
+  }
+
+  .popupBtn {
+    width: 35%;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    border: none;
+    border-radius: 1rem;
+    color: var(--deep-dark);
+    background-color: var(--light);
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.3s, background-color 0.3s;
+    outline: none;
+  }
+
+  .accept:hover {
+    color: #fff;
+    background-color: green;
+  }
+
+  .cancel:hover {
+    color: #fff;
+    background-color: tomato;
+  }
+}
+
+.tools {
+  display: inline-block;
+
+  button {
+    padding: 0.3rem 0.6rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    outline: none;
+
+    &::hover {
+      background-color: #ddd;
+    }
+  }
+
+  .complete {
+    color: var(--light-blue);
+    font-size: 0.9rem;
+    margin-right: 0.6rem;
+
+    &:hover {
+      color: darkblue;
+    }
+  }
+
+  .edit {
+    font-weight: bold;
+    color: rgb(15, 179, 69);
+    font-size: 0.9rem;
+    margin-right: 0.6rem;
+
+    &:hover {
+      color: green;
+    }
+  }
+
+  .delete {
+    color: tomato;
+    font-size: 0.9rem;
+
+    &:hover {
+      color: red;
+    }
+  }
+}
+
+.completed {
+  font-size: 1rem;
+  color: var(--light-dark);
+  text-decoration: line-through;
+  font-style: italic;
+}
+
+@media only screen and (max-width: 1030px) {
+  .todo {
+    width: 100%;
+  }
+
+  .popup {
+    width: calc(100% - 2rem);
+
+    .accept {
+      background-color: green;
+      color: white;
+    }
+
+    .cancel {
+      background-color: tomato;
+      color: white;
+    }
+  }
+}

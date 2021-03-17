@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ToDoList</title>
+    <meta charset="utf-8" />
+    <meta author="Wiktoria Bilska" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/418e1d6294.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="todo">
+      <div class="header">
+        <h1>ToDo List</h1>
+        <input
+          type="text"
+          class="todoInput"
+          placeholder="Enter content..."
+          required
+        />
+        <button class="addBtn" type="submit">Add</button>
+      </div>
+      <div class="todoList">
+        <h3>Todo List:</h3>
+        <p class="alertInfo">There are currently no tasks.</p>
+        <ul></ul>
+      </div>
+    </div>
+
+    <div class="popup">
+      <h3>Edit task:</h3>
+      <div class="popupBody">
+        <p class="popupInfo"></p>
+        <input
+          type="text"
+          class="popupInput"
+          placeholder="Enter new content..."
+        />
+        <button class="popupBtn accept">Accept</button>
+        <button class="popupBtn cancel">Cancel</button>
+      </div>
+    </div>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

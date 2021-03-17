@@ -1,0 +1,282 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --deep-dark: rgb(26, 26, 26);
+  --light-dark: rgb(79, 82, 92);
+  --light-blue: rgb(0, 132, 255);
+  --dark-blue: rgb(2, 84, 161);
+  --light: rgb(245, 245, 245);
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  background-color: var(--light);
+}
+
+.todo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 70%;
+  min-height: auto;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
+}
+
+.todo .header {
+  background-image: linear-gradient(340deg, #8dc595 0%, #21bb2e 100%);
+  border-radius: 1rem;
+  height: auto;
+  padding-bottom: 1rem;
+}
+
+.todo .header h1 {
+  color: var(--light);
+  margin: 1rem;
+  text-transform: uppercase;
+}
+
+.todo .header .todoInput {
+  width: 80%;
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  border: none;
+  border-radius: 0.4rem;
+  color: var(--light-dark);
+  background-color: var(--light);
+  font-size: 1rem;
+  outline: none;
+}
+
+.todo .header .addBtn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.4rem;
+  color: var(--deep-dark);
+  background-color: var(--light);
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-transition: color 0.3s, background-color 0.3s;
+  transition: color 0.3s, background-color 0.3s;
+  font-size: 1rem;
+  outline: none;
+}
+
+.todo .header .addBtn:hover {
+  color: #fff;
+  background-color: var(--light-dark);
+}
+
+.todoList {
+  padding: 2rem 0.5rem;
+}
+
+.todoList h3 {
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.todoList .alertInfo {
+  margin-top: 1rem;
+  color: var(--dark-blue);
+}
+
+.todoList ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 15px;
+  padding-left: 20px;
+  text-align: left;
+  list-style: none;
+  background-color: var(--light);
+}
+
+.popup {
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: calc(70% - 2rem);
+  color: var(--light);
+  background-color: var(--light-dark);
+  border-radius: 1rem;
+  z-index: 2;
+}
+
+.popup::after {
+  display: block;
+  width: 200%;
+  height: 100vh;
+  content: "";
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  z-index: -10;
+}
+
+.popup h3 {
+  padding: 1rem;
+}
+
+.popup .popupInfo {
+  color: var(--light);
+  margin-bottom: 1rem;
+}
+
+.popup .popupBody {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 90%;
+  padding: 0.5rem;
+}
+
+.popup .popupInput {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 1rem;
+  color: var(--light-dark);
+  background-color: var(--light);
+  outline: none;
+}
+
+.popup .popupBtn {
+  width: 35%;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  border: none;
+  border-radius: 1rem;
+  color: var(--deep-dark);
+  background-color: var(--light);
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-transition: color 0.3s, background-color 0.3s;
+  transition: color 0.3s, background-color 0.3s;
+  outline: none;
+}
+
+.popup .accept:hover {
+  color: #fff;
+  background-color: green;
+}
+
+.popup .cancel:hover {
+  color: #fff;
+  background-color: tomato;
+}
+
+.tools {
+  display: inline-block;
+}
+
+.tools button {
+  padding: 0.3rem 0.6rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  outline: none;
+}
+
+.tools button::hover {
+  background-color: #ddd;
+}
+
+.tools .complete {
+  color: var(--light-blue);
+  font-size: 0.9rem;
+  margin-right: 0.6rem;
+}
+
+.tools .complete:hover {
+  color: darkblue;
+}
+
+.tools .edit {
+  font-weight: bold;
+  color: #0fb345;
+  font-size: 0.9rem;
+  margin-right: 0.6rem;
+}
+
+.tools .edit:hover {
+  color: green;
+}
+
+.tools .delete {
+  color: tomato;
+  font-size: 0.9rem;
+}
+
+.tools .delete:hover {
+  color: red;
+}
+
+.completed {
+  font-size: 1rem;
+  color: var(--light-dark);
+  text-decoration: line-through;
+  font-style: italic;
+}
+
+@media only screen and (max-width: 1030px) {
+  .todo {
+    width: 100%;
+  }
+  .popup {
+    width: calc(100% - 2rem);
+  }
+  .popup .accept {
+    background-color: green;
+    color: white;
+  }
+  .popup .cancel {
+    background-color: tomato;
+    color: white;
+  }
+}
+/*# sourceMappingURL=style.css.map */
